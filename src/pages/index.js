@@ -1,115 +1,92 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import React, { useState } from "react";
+import AboutMe from "../components/portfolio/AboutMe";
+import ProjectCard from "../components/portfolio/ProjectCard";
+import ProjectModal from "../components/portfolio/ProjectModal";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const projects = [
+  {
+    title: "Portfolio Website",
+    summary: "A sleek and interactive portfolio to showcase my work.",
+    description:
+      "A fully responsive and interactive portfolio site built with React, Next.js, and TailwindCSS. Features smooth animations, glassmorphism, and modern UI principles.",
+    technologies: ["React", "Next.js", "Tailwind CSS"],
+    skills: ["Frontend Development", "UI/UX Design"],
+    githubRepo: "https://github.com/username/portfolio",
+    liveDemo: "https://portfolio-demo.com",
+    screenshots: ["/screenshots/portfolio-1.png", "/screenshots/portfolio-2.png"],
+  },
+  {
+    title: "E-Commerce Platform",
+    summary: "A scalable web app with cart, payments, and authentication.",
+    description:
+      "A MERN stack e-commerce solution supporting user authentication, cart, and checkout functionality. Designed for scalability and security.",
+    technologies: ["Node.js", "Express", "MongoDB"],
+    skills: ["Backend Development", "Database Design", "Payment Integration"],
+    githubRepo: "https://github.com/username/ecommerce",
+    liveDemo: "https://ecommerce-demo.com",
+    screenshots: [],
+  },
+  {
+    title: "Game Prototype",
+    summary: "A fun 2D platformer built with engaging mechanics.",
+    description:
+      "A Unity 2D prototype featuring custom physics, sprite animations, and level design experimentation.",
+    technologies: ["Unity", "C#"],
+    skills: ["Game Design", "C# Scripting"],
+    screenshots: [],
+  },
+];
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white px-6">
+      {/* Floating background orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-20 left-1/4 w-72 h-72 bg-indigo-600 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-pink-600 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center space-y-16">
+        {/* Hero */}
+        <header>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4">
+            Welcome to My Portfolio
+          </h1>
+          <p className="text-xl text-gray-300">
+            Showcasing my journey, skills, and projects
+          </p>
+        </header>
+
+        {/* About Me */}
+        <section className="flex justify-center">
+          <div className="max-w-lg w-full">
+            <AboutMe />
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section className="flex flex-col items-center gap-8 max-w-4xl mx-auto px-4">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={index}
+              project={project}
+              onClick={() => setSelectedProject(project)}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          ))}
+        </section>
+      </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </div>
   );
 }
