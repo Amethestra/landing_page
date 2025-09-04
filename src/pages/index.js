@@ -5,36 +5,65 @@ import ProjectModal from "../components/portfolio/ProjectModal";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    summary: "A sleek and interactive portfolio to showcase my work.",
-    description:
-      "A fully responsive and interactive portfolio site built with React, Next.js, and TailwindCSS. Features smooth animations, glassmorphism, and modern UI principles.",
-    technologies: ["React", "Next.js", "Tailwind CSS"],
-    skills: ["Frontend Development", "UI/UX Design"],
+    title: "Weather Animation App",
+    summary: "A sleek, animated weather dashboard that pulls real-time data with responsive visuals",
+    description: "This app displays real-time weather conditions with animated effects such as rain, snow, or thunder storm",
+    technologies: ["React", "TailwindCSS", "OpenWeather API", "Framer Motion"],
+    skills: ["API Integration", "Frontend Animation", "Responsive Design"],
     githubRepo: "https://github.com/username/portfolio",
     liveDemo: "https://portfolio-demo.com",
     screenshots: ["/screenshots/portfolio-1.png", "/screenshots/portfolio-2.png"],
   },
   {
-    title: "E-Commerce Platform",
-    summary: "A scalable web app with cart, payments, and authentication.",
-    description:
-      "A MERN stack e-commerce solution supporting user authentication, cart, and checkout functionality. Designed for scalability and security.",
-    technologies: ["Node.js", "Express", "MongoDB"],
-    skills: ["Backend Development", "Database Design", "Payment Integration"],
-    githubRepo: "https://github.com/username/ecommerce",
-    liveDemo: "https://ecommerce-demo.com",
-    screenshots: [],
+    title: "Pixel Art Editor",
+    summary: "A browser-based pixel art editor with export and undo/redo features.",
+    description: "A lightweight web app for creating and editing pixel art sprites. Features a grid-based canvas, color palette, bucket fill, and the ability to export artwork as PNG files.",
+    technologies: ["React", "TailwindCSS", "Canvas API"],
+    skills: ["Frontend Development", "Canvas Rendering", "State Management", "UI/UX"],
+    githubRepo: "https://github.com/yourusername/pixel-art-editor",
+    liveDemo: "https://pixel-editor-demo.vercel.app",
+    screenshots: ["/images/pixel-1.png", "/images/pixel-2.png"]
   },
   {
-    title: "Game Prototype",
-    summary: "A fun 2D platformer built with engaging mechanics.",
-    description:
-      "A Unity 2D prototype featuring custom physics, sprite animations, and level design experimentation.",
-    technologies: ["Unity", "C#"],
-    skills: ["Game Design", "C# Scripting"],
-    screenshots: [],
+    title: "Pathfinding Visualizer",
+    summary: "A C++ desktop app that visualizes A*, Dijkstra, and BFS/DFS algorithms.",
+    description: "This project demonstrates classic pathfinding algorithms in an interactive grid environment. Built with C++ and SFML, users can place walls, set start/end points, and watch algorithms solve the maze in real-time.",
+    technologies: ["C++", "SFML"],
+    skills: ["Algorithm Design", "C++ Development", "Data Structures", "Problem Solving"],
+    githubRepo: "https://github.com/yourusername/pathfinding-visualizer",
+    liveDemo: "",
+    screenshots: ["/images/pathfinding-1.png", "/images/pathfinding-2.png"]
   },
+  {
+    title: "Chess Engine + GUI",
+    summary: "A C++ chess engine with a custom-built SFML user interface.",
+    description: "Implements Minimax with Alpha-Beta pruning for move calculation, alongside a FEN-based board system. Includes a simple GUI to play against the engine, view legal moves, and track captures.",
+    technologies: ["C++", "SFML"],
+    skills: ["Game AI", "Algorithm Optimization", "C++ Programming", "UI Design"],
+    githubRepo: "https://github.com/yourusername/chess-engine",
+    liveDemo: "",
+    screenshots: ["/images/chess-1.png", "/images/chess-2.png"]
+  },
+  {
+    title: "WebAssembly Demo Hub",
+    summary: "A showcase of React + C++ integration using WebAssembly.",
+    description: "A hub of interactive demos compiled from C++ to WebAssembly and displayed within a React frontend. Includes math visualizations, small simulations, and lightweight C++ utilities.",
+    technologies: ["React", "WebAssembly", "C++", "TailwindCSS"],
+    skills: ["WebAssembly", "React-C++ Integration", "Systems Programming", "Frontend Development"],
+    githubRepo: "https://github.com/yourusername/wasm-demo-hub",
+    liveDemo: "https://wasm-demo-hub.vercel.app",
+    screenshots: ["/images/wasm-1.png", "/images/wasm-2.png"]
+  },
+  {
+    title: "Leaderboard System",
+    summary: "A lightweight leaderboard system with persistent storage.",
+    description: "A small but scalable project to manage leaderboards for games or apps. Includes player authentication, score submission, sorting, and retrieval through a RESTful API backend.",
+    technologies: ["Node.js", "Express", "MongoDB", "React"],
+    skills: ["Backend Development", "Database Design", "API Integration", "Full-Stack Development"],
+    githubRepo: "https://github.com/yourusername/leaderboard-system",
+    liveDemo: "https://leaderboard-demo.vercel.app",
+    screenshots: ["/images/leaderboard-1.png", "/images/leaderboard-2.png"]
+  }
 ];
 
 export default function Home() {
